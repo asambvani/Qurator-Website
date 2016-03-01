@@ -1,1 +1,1 @@
-web: WebServerProStream.js; 
+web: node WebServerProStream.js; 
