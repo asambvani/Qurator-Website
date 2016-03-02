@@ -54,6 +54,7 @@ function webserver(req, res) {
 
 	let baseURI = url.parse(req.url); 
 	let filepath = __dirname + (baseURI.pathname == '/' ? '/index.htm': baseURI.pathname); 
+	console.log(filepath);
 	// Check if the requested file is accessible or not
 	let contentType = mimes[path.extname(filepath)]; 
 
