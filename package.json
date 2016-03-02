@@ -1,11 +1,23 @@
 {
   "name": "qurator-website",
   "version": "1.0.0",
-  "description": "",
   "main": "WebServerProStream.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asambvani/Qurator-Website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/asambvani/Qurator-Website/issues"
+  },
+  "homepage": "https://github.com/asambvani/Qurator-Website#readme",
+  "description": ""
 }
