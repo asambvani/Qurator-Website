@@ -2,7 +2,7 @@
   "name": "qurator-website",
   "version": "1.0.0",
   "description": "",
-  "main": "WebServer.js",
+  "main": "WebServerProStream.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
