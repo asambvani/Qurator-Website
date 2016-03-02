@@ -3,7 +3,7 @@ const http = require('http');
 const url = require('url'); 
 const fs = require('fs'); 
 const path = require('path'); 
-const app = require('express'); 
+const express = require('express'); 
 
 let mimes = {
 
@@ -16,6 +16,7 @@ let mimes = {
 
 }
 
+var app = express(); 
 app.set('port', process.env.PORT || 3000);
 
 function fileAccess(filepath) {
