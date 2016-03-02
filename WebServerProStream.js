@@ -14,6 +14,8 @@ let mimes = {
 
 }
 
+app.set('port', process.env.PORT || 3000);
+
 function fileAccess(filepath) {
 	return new Promise((resolve, reject) => {
 
@@ -65,4 +67,4 @@ function webserver(req, res) {
 		});
 }
 
-http.createServer(webserver).listen(3000, () => console.log('Webserver running on port 3000')); 
+http.createServer(webserver).listen(app.get('port'), () => console.log('Webserver running on port'+ app.get('port'))); 
