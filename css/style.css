@@ -5,8 +5,8 @@ body {
 }
 
 hr {
-     background:red;
-     height:4px;
+     background:rgb(141,198,213);
+     height:8px;
      margin:0px;
      border:0px;
 }
@@ -26,8 +26,9 @@ hr {
 }
 
 #header_1 {
-    /* background:rgb(255,0,0); */
-/*    height:100px;*/
+    /*background:rgb(255,0,0);*/ 
+    padding-top:30px;
+    height:95px;
     width:417px;
     float:left;
 }
@@ -40,20 +41,23 @@ hr {
 }
 
 #header_3 {
-/*    background:rgb(0,0,255);*/
-/*    height:100px;*/
+    /*background:rgb(0,0,255);*/
+    padding-top: 30px;   
+    height:95px;   
     width:417px;
     float:left;
 }
 
 .greyarea {
-     background:rgb(235, 235, 235);
+     /*background:rgb(235, 235, 235)*/;
      width:417px;
      height:60px;
 }
 
 .links {
+     font-family: 'Abel', sans-serif;
      position:relative;
+     bottom: 0;
      float:left;
      width:208px;
      height:80px;
@@ -61,14 +65,15 @@ hr {
 }
 
 .headline {
-    position:relative;
-    width:960px;
+        width:960px;
     height:70px;
     text-align:center;
 }
 
 .headline h1 {
-    font-family: 'Michroma', sans-serif;
+    font-family: 'Abel', sans-serif;
+    font-size:125%;
+    font-style: italic;
     font-weight:normal;
     margin:0px;
     padding-top:13px;
@@ -87,7 +92,7 @@ a {
 }
 
 a:hover {
-    color:rgb(255,0,0);   
+    color:rgb(184,153,183);   
 }
 
 .image {
@@ -162,7 +167,7 @@ a:hover {
 .about-title h2 {
     font-family: 'Carrois Gothic SC', sans-serif;
     font-size:40px;
-    color:rgb(255,0,0);
+    color:rgb(141,198,213);
     padding-top:35px;
     padding-left:5px
 }
@@ -175,7 +180,7 @@ a:hover {
     float:left;
     width:250px;
     height:580px;
-    background:rgb(240,240,240);
+    background:rgb(238,185,153);
 }
 
 .about-menu-ul {
@@ -334,6 +339,7 @@ a:hover {
 
 .about-menu hr {
 /*     border:1px solid red;*/
-     height:1px;
+     height:5px;
+     background:white;
     
 }
