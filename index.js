@@ -2,11 +2,9 @@
 const http = require('http');
 const url = require('url'); 
 const fs = require('fs'); 
-const path = require('path');
+const path = require('path')
 const express = require('express');
-var app = express(); 
-
-app.set('port', (process.env.PORT || 3000));
+var app = express();
 
 let mimes = {
 
@@ -19,31 +17,8 @@ let mimes = {
 
 }
 
-function fileAccess(filepath) {
-	return new Promise((resolve, reject) => {
 
-		fs.access(filepath, fs.F_OK, error => {
-			if(!error){
-				resolve(filepath); 
-			} else {
-				reject(error);
-			}
-		})
-
-	}); 
-}
-
-function fileReader(filepath) {
-	return new Promise((resolve,reject) => {
-		fs.readFile(filepath, (error, content) => {
-			if(!error){
-				resolve(content); 
-			} else {
-				reject(error); 
-			}
-		}); 
-	});
-}
+app.set('port', process.env.PORT || 3000);
 
 function webserver(req, res) {
 	// if the route requested is '/', then load 'index.hml' or else 
@@ -52,19 +27,34 @@ function webserver(req, res) {
 	let baseURI = url.parse(req.url); 
 	let filepath = __dirname + (baseURI.pathname == '/' ? '/index.htm': baseURI.pathname); 
 	// Check if the requested file is accessible or not
-	let contentType = mimes[path.extname(filepath)]; 
-
-	fileAccess(filepath)
-		.then(fileReader)
-		.then(content => {
-			res.writeHead(200, {'Content-type': contentType}); 
-			res.end(content, 'utf-8');
-		})
-		.catch(error => {
+	fs.access(filepath, fs.F_OK, error => {
+		if(!error){
+			// Read and serve the file over response
+			fs.readFile(filepath, (error, content) => {
+					if(!error){
+						console.log('Serving: ', filepath); 
+						// Resolve the content type
+						let contentType = mimes[path.extname(filepath)]; 
+						res.writeHead(200,{'Content-type': contentType});
+						res.end(content, 'utf-8');
+						// Serve the file from the buffer 
+					} else {
+						// Serve a 500
+						res.writeHead(500); 
+						res.end('The server could not read the file requested.');
+					}
+				});
+		} else {
+			// Serve a 404
 			res.writeHead(404);
-			res.end(JSON.stringify(error)); 
-		});
+			res.end('Content not found!'); 
+		}
+	}); 
+
 }
 
-http.createServer(webserver).listen(app.get('port'), () => console.log('Webserver running on port ' + app.get('port')));
- 
+http.createServer(webserver).listen(app.get('port'), () => {
+
+	console.log('Webserver running on port ' + app.get('port')); 
+
+});
