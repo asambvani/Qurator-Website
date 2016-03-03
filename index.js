@@ -53,7 +53,7 @@ function webserver(req, res) {
 
 }
 
-http.createServer(webserver).listen(app.get('port'), () => {
+http.createServer(webserver).listen(app.get('port'),'0.0.0.0', () => {
 
 	console.log('Webserver running on port ' + app.get('port')); 
 
