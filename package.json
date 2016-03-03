@@ -20,8 +20,7 @@
     "url": "https://github.com/asambvani/Qurator-Website/issues"
   },
   "homepage": "https://github.com/asambvani/Qurator-Website#readme",
-  "description": ""
-
+  "description": "",
   "engines": {
     "node": "4.3.1"
   }
