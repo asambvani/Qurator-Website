@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/asambvani/Qurator-Website/issues"
   },
-  "engines"{
+  "engines": {
     "node": "4.3.1"
     },
   "homepage": "https://github.com/asambvani/Qurator-Website#readme"
