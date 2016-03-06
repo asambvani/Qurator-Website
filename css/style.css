@@ -5,47 +5,92 @@ body {
 }
 
 hr {
-     background:rgb(141,198,213);
-     height:8px;
-     margin:0px;
-     border:0px;
+     
+
 }
 
-.container 
+.top_bar{
+   
+    background:rgb(141,198,213);
+    height:8px;
+    margin:0px;
+    border:0px;
+
+}
+.menu_bar{
+   
+    background:black;
+    height:150px;
+    margin:0px;
+    border:0px;
+
+
+
+}
+.master_container
 {
     position:relative;
     margin:auto;
     width:960px;
-    height:970px;
+    height:100%;
+    /*background-color: red;*/
 }
 
+.content_container
+{
+    position:relative;
+    margin:auto;
+    width:960px;
+    height:100%;
+    /*background-color: green;*/
+}
+
+.body_background{
+    height:100%;
+    width:100%;
+    background:linear-gradient(rgba(217,217,217,.1),rgba(217,217,217,0.1));
+    position:relative;
+
+}
+.body_content{
+    position:relative;
+    width:960px;
+    margin:auto;
+    /*background:red;*/
+    
+
+
+}
 .header {
      position:relative;
      width:960px;
-     height:133px;
+     height:120px;
 }
 
 #header_1 {
     /*background:rgb(255,0,0);*/ 
     padding-top:30px;
-    height:95px;
+    height:120px;
     width:417px;
     float:left;
+    /*background-color: green;*/
 }
 
 #header_2 {
-/*    background:rgb(255,0,0);*/
+    /*background:red*/
     height:120px;
     width:125px; 
     float:left;
+   
 }
 
 #header_3 {
-    /*background:rgb(0,0,255);*/
+    /*background:blue*/
     padding-top: 30px;   
-    height:95px;   
+    height:120px;   
     width:417px;
     float:left;
+    
 }
 
 .greyarea {
@@ -62,12 +107,17 @@ hr {
      width:208px;
      height:80px;
     text-align:center;
+    vertical-align: text-center;
 }
 
 .headline {
-        width:960px;
+    width:960px;
     height:70px;
     text-align:center;
+    position:relative;
+    vertical-align: middle;
+
+
 }
 
 .headline h1 {
@@ -76,12 +126,14 @@ hr {
     font-style: italic;
     font-weight:normal;
     margin:0px;
-    padding-top:13px;
+    padding-top:25px;
+
 }
 
 h5 {
      margin:0px;
      font-family: 'Abel', sans-serif;
+
     font-size:16px;
     padding-top:20px
 }
@@ -98,14 +150,16 @@ a:hover {
 .image {
      position:relative;
      width:960px;
-     height:300px;
+     height:400px;
      background:#c3c3c3;
+     margin:auto;
 }
 
 .highlights_container {
      position:relative;
      width:960px;
      height:400px;
+     /*background-color: white;*/
 }
 
 .boxes {
@@ -116,14 +170,62 @@ a:hover {
      float:left;
 }
 
-.hlogo {
+.hlogo_1 {
+    
     position:relative;
     width:200px;
     height:200px;
     margin:auto;
-/*    background:#c3c3c3;*/
+    background:linear-gradient(rgba(141,198,213,0.2),rgba(141,197,213,0.1)), url("/img/canvas.png");
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-style:bold;
+    font-size:20px;
+    font-weight: bold;
+    text-align:center;
+    vertical-align: middle;
+    padding-top: 80px
 }
 
+.hlogo_2 {
+    
+    position:relative;
+    width:200px;
+    height:200px;
+    margin:auto;
+    background:linear-gradient(rgba(184,153,183,0.2),rgba(184,153,183,0.1)), url("/img/canvas.png");
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-style:bold;
+    font-size:20px;
+    font-weight: bold;
+    text-align:center;
+    vertical-align: middle;
+    padding-top: 80px
+}
+
+.hlogo_3 {
+    
+    position:relative;
+    width:200px;
+    height:200px;
+    margin:auto;
+    background:linear-gradient(rgba(238,185,153,0.2),rgba(238,185,153,0.1)), url("/img/canvas.png");
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-style:bold;
+    font-weight: bold;
+    font-size:20px;
+    text-align:center;
+    vertical-align: middle;
+    padding-top: 80px
+}
+.overlay_2 {
+
+
+}
+
+.overlay_3{
+
+
+}
 .htitle {
     position:relative;
     width:200px;
@@ -144,11 +246,13 @@ a:hover {
     margin:0px;
     font-size:18px;
     padding:8px
+
 }
 
 .htext p {
+    padding-top: 10px;
     font-family: 'Telex', sans-serif;
-    font-size:11px;
+    font-size:14px;
     text-align:justify;
     margin:0px;
 }
@@ -156,7 +260,7 @@ a:hover {
 /* About Us Page Styles */
 
 .about-content {
-     height:700px;
+     height:800px;
 }
 
 .about-title {
