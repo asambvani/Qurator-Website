@@ -226,15 +226,7 @@ a:hover {
     vertical-align: middle;
 
 }
-.overlay_2 {
 
-
-}
-
-.overlay_3{
-
-
-}
 .htitle {
     position:relative;
     width:200px;
@@ -509,10 +501,34 @@ a:hover {
     color:white;   
 }
 
+/* ---- Algorithm Page CSS ----*/ 
 .algorithm_container {
     position:relative;
     width:960px;
     height:600px;
     background-color: black;
+
+
+}
+
+.top_picture_box{
+    position:relative;
+    width:200px;
+    height:200px;
+    background-color: yellow;
+    margin-left:20%;
+    margin-top:5%;
+    float:left;
+
+}
+
+.bottom_picture_box{
+    position:relative;
+    width:200px;
+    height:200px;
+    background-color: yellow;
+    margin-left:20%;
+    margin-top:10%;
+    float:left;
 
 }
