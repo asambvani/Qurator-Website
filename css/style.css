@@ -451,10 +451,11 @@ a:hover {
 
     width:100%;
     height:50px;
-    position:absolute;
+    position:fixed;
     top:0px;
-    background:rgba(184,153,183,.5);
+    background:rgba(184,153,183,1);
     visibility: hidden;
+    z-index: 2;
 }
 
 .floating_nav_links{
@@ -476,7 +477,6 @@ a:hover {
     width:208px;
     height:50px;
     float:left;
-
     vertical-align: text-center;
     line-height:50px;    
 }
