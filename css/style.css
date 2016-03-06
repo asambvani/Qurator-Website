@@ -94,7 +94,7 @@ hr {
 }
 
 .greyarea {
-     /*background:rgb(235, 235, 235)*/;
+     /*background:rgb(235, 235, 235)*/
      width:417px;
      height:60px;
 }
@@ -182,8 +182,8 @@ a:hover {
     font-size:20px;
     font-weight: bold;
     text-align:center;
-    vertical-align: middle;
-    padding-top: 80px
+    
+    
 }
 
 .hlogo_2 {
@@ -199,7 +199,6 @@ a:hover {
     font-weight: bold;
     text-align:center;
     vertical-align: middle;
-    padding-top: 80px
 }
 
 .hlogo_3 {
@@ -215,7 +214,7 @@ a:hover {
     font-size:20px;
     text-align:center;
     vertical-align: middle;
-    padding-top: 80px
+
 }
 .overlay_2 {
 
