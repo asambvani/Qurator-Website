@@ -446,3 +446,50 @@ a:hover {
      background:white;
     
 }
+
+.floating_nav_background{
+
+    width:100%;
+    height:50px;
+    position:absolute;
+    top:0px;
+    background:rgba(184,153,183,.5);
+    visibility: hidden;
+}
+
+.floating_nav_links{
+
+   
+    width:960px;
+    margin:auto;
+    top:0px;
+    height: 50px;
+    font-family: 'Abel', sans-serif;
+    position:relative;
+    bottom: 0;
+    text-align:center;
+    vertical-align: text-center;
+}
+
+.floating_nav_link_container{
+
+    width:208px;
+    height:50px;
+    float:left;
+
+    vertical-align: text-center;
+    line-height:50px;    
+}
+
+.home_floating_nav_link{
+
+    line-height:50px;    
+    height:50px;
+    width:125px; 
+    float:left;
+    vertical-align: text-center;
+}
+
+.floating_nav_link_container a:hover {
+    color:white;   
+}
