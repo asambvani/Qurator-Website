@@ -52,7 +52,7 @@ $(window).load(function(){
 
 	       		box_container[box_number].css({
 
-	       				opacity: '0.5'  
+	       				opacity: '0.8'  
 
        			});
 

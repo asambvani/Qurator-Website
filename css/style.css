@@ -48,7 +48,7 @@ hr {
 .body_background{
 
     width:100%;
-    background:linear-gradient(rgba(217,217,217,.1),rgba(217,217,217,0.1));
+    background:linear-gradient(rgba(217,217,217,.2),rgba(217,217,217,0.3));
     position:relative;
 
 }
@@ -162,6 +162,7 @@ a:hover {
      width:960px;
      height:400px;
      margin:auto;
+     box-shadow:0px 0px 1px 1px rgba(0,0,0,0.2);
 }
 
 .highlights_container {
