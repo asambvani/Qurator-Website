@@ -15,8 +15,9 @@ $(window).load(function(){
             if (shouldBeVisible && !isVisible){
 
                 nav.css({
-                    visibility: 'visible'
                     
+                    visibility: 'visible'
+                
                 }); 
 
                 isVisible=true; 
@@ -24,6 +25,7 @@ $(window).load(function(){
             else if (!shouldBeVisible && isVisible) {
                
                 nav.css({
+                
                     visibility: 'hidden' 
                 });
                 isVisible = false; 

@@ -46,7 +46,7 @@ hr {
 }
 
 .body_background{
-    height:100%;
+
     width:100%;
     background:linear-gradient(rgba(217,217,217,.1),rgba(217,217,217,0.1));
     position:relative;
@@ -161,7 +161,6 @@ a:hover {
      position:relative;
      width:960px;
      height:400px;
-     background:#c3c3c3;
      margin:auto;
 }
 
@@ -501,21 +500,24 @@ a:hover {
     color:white;   
 }
 
-/* ---- Algorithm Page CSS ----*/ 
+/* ------------ Algorithm Page CSS ------------*/ 
 .algorithm_container {
+    
     position:relative;
     width:960px;
     height:600px;
-    background-color: black;
+    background: url("/img/algorithm_background.jpg");
+ 
 
 
 }
 
 .top_picture_box{
+ 
     position:relative;
     width:200px;
     height:200px;
-    background-color: yellow;
+    background-color: white;
     margin-left:20%;
     margin-top:5%;
     float:left;
@@ -523,10 +525,11 @@ a:hover {
 }
 
 .bottom_picture_box{
-    position:relative;
+  
+   position:relative;
     width:200px;
     height:200px;
-    background-color: yellow;
+    background-color: white;
     margin-left:20%;
     margin-top:10%;
     float:left;
