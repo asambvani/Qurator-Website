@@ -39,7 +39,7 @@ $(window).load(function(){
         
         var box_container = [box1, box2, box3, box4]; 
         var box_hover = [false,false,false,false]; 
-  		var url_container = ['url("/img/inventory/thumb/01.jpg")', 'url("/img/inventory/thumb/02.jpg")', 'url("/img/inventory/thumb/03.jpg")', 'url("/img/inventory/thumb/04.jpg")'];  
+  		var url_container = ['url("/img/inv/thumb/01.jpg")', 'url("/img/inv/thumb/02.jpg")', 'url("/img/inv/thumb/03.jpg")', 'url("/img/inv/thumb/04.jpg")'];  
 
   		for(var i=0; i<4 ; i++){
 
