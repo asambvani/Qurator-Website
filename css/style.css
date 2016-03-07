@@ -352,8 +352,8 @@ a:hover {
 }
 
 .portfolio-ul li {
-    width:150px;
-    height:113px;
+    width:200px;
+    height:200px;
     float:left;
     margin-right:40px;
     margin-bottom:40px;
@@ -521,6 +521,7 @@ a:hover {
     margin-left:20%;
     margin-top:5%;
     float:left;
+    box-shadow:0px 0px 10px 2px rgba(0,0,0,0.5);
 
 }
 
@@ -533,5 +534,5 @@ a:hover {
     margin-left:20%;
     margin-top:10%;
     float:left;
-
+    box-shadow:0px 0px 10px 2px rgba(0,0,0,0.5);
 }
