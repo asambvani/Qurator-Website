@@ -24,8 +24,6 @@ hr {
     margin:0px;
     border:0px;
 
-
-
 }
 .master_container
 {
@@ -33,7 +31,7 @@ hr {
     margin:auto;
     width:960px;
     height:100%;
-    /*background-color: red;*/
+   
 }
 
 .content_container
@@ -133,7 +131,7 @@ hr {
 .qurate_description {
     font-family: 'Abel', sans-serif;
     font-size:18px;
-    font-weight:bold;
+    font-weight:normal;
     margin:auto;
     padding-top:25px;
     text-align: center;
@@ -261,7 +259,10 @@ a:hover {
 /* About Us Page Styles */
 
 .about-content {
-     height:800px;
+    height:800px;
+    width:960px;
+    margin:auto;
+ 
 }
 
 .about-title {

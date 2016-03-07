@@ -28,6 +28,7 @@ $(window).load(function(){
                 
                     visibility: 'hidden' 
                 });
+                
                 isVisible = false; 
 
             }
