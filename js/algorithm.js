@@ -16,9 +16,21 @@ $(window).load(function(){
        
         }); 
 
+        box1.click(function(){
+       
+          click_handler(0); 
+       
+        }); 
+
         box2.hover(function(){
        
         	hover_handler(1); 
+       
+        }); 
+
+        box2.click(function(){
+       
+          click_handler(1); 
        
         }); 
 
@@ -28,9 +40,21 @@ $(window).load(function(){
        
         }); 
 
+        box3.click(function(){
+       
+          click_handler(2); 
+       
+        }); 
+
         box4.hover(function(){
        
         	hover_handler(3); 
+       
+        }); 
+
+        box4.click(function(){
+       
+          click_handler(3); 
        
         }); 
 
@@ -39,7 +63,8 @@ $(window).load(function(){
         
         var box_container = [box1, box2, box3, box4]; 
         var box_hover = [false,false,false,false]; 
-  		var url_container = ['url("/img/inv/thumb/01.jpg")', 'url("/img/inv/thumb/02.jpg")', 'url("/img/inv/thumb/03.jpg")', 'url("/img/inv/thumb/04.jpg")'];  
+        var box_click = [false,false,false,false]; 
+  		  var url_container = ['url("/img/inv/thumb/01.jpg")', 'url("/img/inv/thumb/02.jpg")', 'url("/img/inv/thumb/03.jpg")', 'url("/img/inv/thumb/04.jpg")'];  
 
   		for(var i=0; i<4 ; i++){
 
@@ -52,7 +77,8 @@ $(window).load(function(){
 
 	       		box_container[box_number].css({
 
-	       				opacity: '0.8'  
+	       				opacity: '0.8'
+
 
        			});
 
@@ -70,5 +96,38 @@ $(window).load(function(){
        		}     
    
        }
+
+      var click_handler = function(box_number){
+         
+         if(box_click[box_number]==false){
+
+            box_container[box_number].css({
+
+                borderColor: 'rgba(255,255,0,1)'
+
+            });
+
+            box_click[box_number] = true; 
+
+         } else if (box_click[box_number] == true){
+
+            box_container[box_number].css({
+
+                borderColor: 'rgba(255,255,0,0)'
+
+            });
+
+            box_click[box_number] = false;
+          }     
+   
+       }
+
+
+
     });
+
+
+
+
+
 });
