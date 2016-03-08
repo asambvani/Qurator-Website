@@ -506,12 +506,20 @@ a:hover {
 }
 
 /* ------------ Algorithm Page CSS ------------*/ 
+
+.algorithm_background{
+
+   width:100%;
+   background: url("/img/algorithm_background.jpg");
+   position:relative;
+
+}
 .algorithm_container {
     
     position:relative;
     width:960px;
-    height:600px;
-    background: url("/img/algorithm_background.jpg");
+    height:1000px;
+    /*background: url("/img/algorithm_background.jpg");*/
  
 
 
@@ -520,11 +528,11 @@ a:hover {
 .top_picture_box{
  
     position:relative;
-    width:200px;
-    height:200px;
+    width:250px;
+    height:250px;
     background-color: white;
-    margin-left:20%;
-    margin-top:5%;
+    margin-left:15%;
+    margin-top:2%;
     float:left;
     box-shadow:0px 0px 10px 2px rgba(0,0,0,0.5);
 
@@ -533,11 +541,11 @@ a:hover {
 .bottom_picture_box{
   
    position:relative;
-    width:200px;
-    height:200px;
+    width:250px;
+    height:250px;
     background-color: white;
-    margin-left:20%;
-    margin-top:10%;
+    margin-left:15%;
+    margin-top:5%;
     float:left;
     box-shadow:0px 0px 10px 2px rgba(0,0,0,0.5);
 }
