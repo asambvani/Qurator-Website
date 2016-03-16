@@ -1,8 +1,6 @@
 $(function(){
     
-    var buttonHover = new buzz.sound( "../sounds/button-3", {
-    formats: ["mp3"]
-    });
+    
     
     $(document).on('mouseover','.fancybox',function(e){
          buttonHover.play();

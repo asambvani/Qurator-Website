@@ -2,8 +2,9 @@
 const http = require('http');
 const url = require('url'); 
 const fs = require('fs'); 
-const path = require('path'); 
-const express = require('express'); 
+const path = require('path')
+const express = require('express');
+var app = express();
 
 let mimes = {
 
@@ -16,37 +17,8 @@ let mimes = {
 
 }
 
-var app = express(); 
+
 app.set('port', process.env.PORT || 3000);
-
-function fileAccess(filepath) {
-	return new Promise((resolve, reject) => {
-
-		fs.access(filepath, fs.F_OK, error => {
-			if(!error){
-				resolve(filepath); 
-			} else {
-				reject(error);
-			}
-		})
-
-	}); 
-}
-
-function streamFile(filepath){
-	return new Promise((resolve, reject) => {
-			let fileStream = fs.createReadStream(filepath); 
-			
-			fileStream.on('open', () => {
-				resolve(fileStream); 
-			});
-
-			fileStream.on('error',() => {
-				reject(error); 
-			});
-	});
-
-}
 
 function webserver(req, res) {
 	// if the route requested is '/', then load 'index.hml' or else 
@@ -54,21 +26,35 @@ function webserver(req, res) {
 
 	let baseURI = url.parse(req.url); 
 	let filepath = __dirname + (baseURI.pathname == '/' ? '/index.htm': baseURI.pathname); 
-	console.log(filepath);
 	// Check if the requested file is accessible or not
-	let contentType = mimes[path.extname(filepath)]; 
-
-	fileAccess(filepath)
-		.then(streamFile)
-		.then(fileStream => {
-			res.writeHead(200, {'Content-type': contentType}); 
-			//res.end(content, 'utf-8');
-			fileStream.pipe(res); 
-		})
-		.catch(error => {
+	fs.access(filepath, fs.F_OK, error => {
+		if(!error){
+			// Read and serve the file over response
+			fs.readFile(filepath, (error, content) => {
+					if(!error){
+						console.log('Serving: ', filepath); 
+						// Resolve the content type
+						let contentType = mimes[path.extname(filepath)]; 
+						res.writeHead(200,{'Content-type': contentType});
+						res.end(content, 'utf-8');
+						// Serve the file from the buffer 
+					} else {
+						// Serve a 500
+						res.writeHead(500); 
+						res.end('The server could not read the file requested.');
+					}
+				});
+		} else {
+			// Serve a 404
 			res.writeHead(404);
-			res.end(JSON.stringify(error)); 
-		});
+			res.end('Content not found!'); 
+		}
+	}); 
+
 }
 
-http.createServer(webserver).listen(app.get('port'), () => console.log('Webserver running on port '+ app.get('port'))); 
+http.createServer(webserver).listen(app.get('port'),'0.0.0.0', () => {
+
+	console.log('Webserver running on port ' + app.get('port')); 
+
+});
