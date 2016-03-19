@@ -9,8 +9,7 @@ $(window).load(function(){
         var $w = $(window); 
         
         $w.scroll(function(){
-            var scrollTop = $w.scrollTop(); 
-            console.log(scrollTop); 
+            var scrollTop = $w.scrollTop();  
             var shouldBeVisible = scrollTop > navHomeY; 
             if (shouldBeVisible && !isVisible){
 

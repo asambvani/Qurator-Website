@@ -1,15 +1,16 @@
 'use strict'
 
-console.log("Algorithm is working!");
-
 $(window).load(function(){
     
     $(function(){
      
+        var $w = $(window); 
         var box1 = $("#box1"); 
         var box2 = $("#box2");
         var box3 = $("#box3");
         var box4 = $("#box4");
+        var algorithm_section = $("#algorithm_section");
+        var suggestions_section = $("#suggestions_section");
         var left_button = $('#left_button'); 
         var right_button = $('#right_button'); 
         var box_container = [box1, box2, box3, box4]; 
@@ -17,19 +18,61 @@ $(window).load(function(){
         var box_hover = [false,false,false,false]; 
         var button_hover = [false,false];
         var box_click = [false,false,false,false]; 
-        var url_container = ['url("/img/inv/thumb/01.jpg")', 'url("/img/inv/thumb/02.jpg")', 'url("/img/inv/thumb/03.jpg")', 'url("/img/inv/thumb/04.jpg")', 'url("/img/inv/thumb/05.jpg")', 'url("/img/inv/thumb/06.jpg")', 'url("/img/inv/thumb/07.jpg")', 'url("/img/inv/thumb/08.jpg")'];
+        var all_photos = [];
+        var url_container = ['url("/img/inv/thumb/01.jpg")', 'url("/img/inv/thumb/02.jpg")', 'url("/img/inv/thumb/03.jpg")', 'url("/img/inv/thumb/04.jpg")', 'url("/img/inv/thumb/05.jpg")', 'url("/img/inv/thumb/06.jpg")', 'url("/img/inv/thumb/07.jpg")', 'url("/img/inv/thumb/08.jpg")','url("/img/inv/thumb/09.jpg")', 'url("/img/inv/thumb/10.jpg")', 'url("/img/inv/thumb/11.jpg")', 'url("/img/inv/thumb/12.jpg")', 'url("/img/inv/thumb/13.jpg")', 'url("/img/inv/thumb/14.jpg")', 'url("/img/inv/thumb/15.jpg")', 'url("/img/inv/thumb/16.jpg")'];
         var current_screen = 1; 
-        var number_of_screens = 2; 
+        var number_of_screens = 4; 
         const boxes_per_screen = 4; 
         const pic_fade = 600; 
+        const total_inventory = 39; 
         var boxes_selected = []; 
 
+        for(let i=1; i<=total_inventory; i++){
+
+          var picture_directory = 'url("/img/inv/thumb/'; 
+          var temp_url = picture_directory+"0"+i+".jpg"+")"+"'";
+          all_photos[i] = temp_url;
+          //if(i == total_inventory-1) console.log(all_photos);
+
+        }
+
+        /*var reader = new FileReader();
+        var file = evt.target.files[0]; 
+        reader.readAsText();
+        console.log(reader); 
+
+         reader.onLoad= function (event){
+
+
+            var databaseData = event.target.result 
+            var data = $.csv.toArray(databaseData); 
+            console.log(data); 
+
+        }
+ 
+        */
+
+        var fileInput = document.getElementById("database.csv"); 
+        console.log(fileInput);
+
+
+       
+
+        //var database = $.csv.toArray("/picture_database/database.csv"); 
+
+       /* var reader = new FileReader(); 
+        reader.readAsText("database.csv"); 
+        reader.onLoad = function(){
+            var csv = event.target.result; 
+            console.log(csv); 
+
+        }*/
+        
         for (let i=0; i<number_of_screens*boxes_per_screen; i++){
 
             boxes_selected[i] = false; 
 
         }
-
 
         box1.hover(function(){
        
@@ -81,14 +124,12 @@ $(window).load(function(){
 
         left_button.hover(function(){
        
-          console.log("left_button hover!");
           button_hover_handler(0);    
        
         }); 
 
         left_button.click(function(){
-       
-          console.log("left_button clicked!"); 
+        
           prev_screen(); 
 
        
@@ -102,8 +143,7 @@ $(window).load(function(){
         }); 
         
         right_button.click(function(){
-       
-          console.log("right_button clicked!");   
+          
           next_screen(); 
        
         });
@@ -230,7 +270,7 @@ $(window).load(function(){
             algorithm_end(); 
           }
           
-          console.log(boxes_selected);
+         
        }
 
        var prev_screen = function(){
@@ -266,17 +306,43 @@ $(window).load(function(){
             }
 
           }
-
-          console.log(boxes_selected);
         
        }
-
      
      // This function is called once the user has reached the last screen and clicks the next button 
-     var algorithm_end = function (){
+       var algorithm_end = function (){
+
+          console.log(boxes_selected);
 
 
-     }
+          suggestions_section.css({
+
+              visibility: 'visible' 
+
+          });
+
+          /*var $anchor = $(this);
+          $('html, body').stop().animate({
+          scrollTop: (suggestions_section.offset().top - 50)
+          }, 1500, 'easeInOutExpo');*/
+      
+          var $anchor = $(this);
+          $('html, body').stop().animate({
+          scrollTop: (suggestions_section.offset().top- 50)
+          }, 1500);
+
+          // Alternate code that makes the algorithm section disappear//
+          /*
+          algorithm_section.css({
+
+            visibility: 'hidden', 
+            height: '0px' 
+
+          });
+          */
+
+
+       }
 
     });
 

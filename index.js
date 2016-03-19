@@ -6,6 +6,7 @@ const path = require('path')
 const express = require('express');
 var app = express();
 
+
 let mimes = {
 
 	'.htm': 'text/html', 
@@ -16,7 +17,6 @@ let mimes = {
 	'png': 'image/png'
 
 }
-
 
 app.set('port', process.env.PORT || 3000);
 
