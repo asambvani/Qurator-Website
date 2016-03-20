@@ -9,6 +9,7 @@ $(window).load(function(){
         var box2 = $("#box2");
         var box3 = $("#box3");
         var box4 = $("#box4");
+        var slide_number_container = $("#slide_number"); 
         var algorithm_section = $("#algorithm_section");
         var suggestions_section = $("#suggestions_section");
         var left_button = $('#left_button'); 
@@ -19,9 +20,11 @@ $(window).load(function(){
         var button_hover = [false,false];
         var box_click = [false,false,false,false]; 
         var all_photos = [];
+        var screen_number_urls = ['url("/img/slide1.png")','url("/img/slide2.png")','url("/img/slide3.png")','url("/img/slide4.png")' ];
         var url_container = ['url("/img/inv/thumb/01.jpg")', 'url("/img/inv/thumb/02.jpg")', 'url("/img/inv/thumb/03.jpg")', 'url("/img/inv/thumb/04.jpg")', 'url("/img/inv/thumb/05.jpg")', 'url("/img/inv/thumb/06.jpg")', 'url("/img/inv/thumb/07.jpg")', 'url("/img/inv/thumb/08.jpg")','url("/img/inv/thumb/09.jpg")', 'url("/img/inv/thumb/10.jpg")', 'url("/img/inv/thumb/11.jpg")', 'url("/img/inv/thumb/12.jpg")', 'url("/img/inv/thumb/13.jpg")', 'url("/img/inv/thumb/14.jpg")', 'url("/img/inv/thumb/15.jpg")', 'url("/img/inv/thumb/16.jpg")'];
         var current_screen = 1; 
         var number_of_screens = 4; 
+        var number_of_suggestions = 15; 
         const boxes_per_screen = 4; 
         const pic_fade = 600; 
         const total_inventory = 39; 
@@ -29,10 +32,20 @@ $(window).load(function(){
 
         for(let i=1; i<=total_inventory; i++){
 
-          var picture_directory = 'url("/img/inv/thumb/'; 
-          var temp_url = picture_directory+"0"+i+".jpg"+")"+"'";
-          all_photos[i] = temp_url;
-          //if(i == total_inventory-1) console.log(all_photos);
+          var temp_string = "url(\"/img/inv/thumb/"
+          
+          if( i<10 ){
+
+            temp_string += "0"+ i + '.jpg")';
+
+          } else {
+
+            temp_string += i + '.jpg")';
+
+          }
+                  
+          all_photos[i] = temp_string;
+          
 
         }
 
@@ -74,80 +87,24 @@ $(window).load(function(){
 
         }
 
-        box1.hover(function(){
-       
-        	pic_hover_handler(0); 
-       
-        }); 
+        box1.hover(function() { pic_hover_handler(0);}); 
+        box1.click(function() { pic_click_handler(0);}); 
 
-        box1.click(function(){
-       
-          pic_click_handler(0); 
-       
-        }); 
+        box2.hover(function() { pic_hover_handler(1);}); 
+        box2.click(function() { pic_click_handler(1);}); 
 
-        box2.hover(function(){
-       
-        	pic_hover_handler(1); 
-       
-        }); 
+        box3.hover(function() { pic_hover_handler(2);}); 
+        box3.click(function() { pic_click_handler(2);}); 
 
-        box2.click(function(){
+        box4.hover(function() { pic_hover_handler(3);}); 
+        box4.click(function() { pic_click_handler(4);}); 
        
-          pic_click_handler(1); 
-       
-        }); 
+        left_button.hover(function() { button_hover_handler(0);}); 
+        left_button.click(function() { prev_screen();}); 
 
-        box3.hover(function(){
-       
-        	pic_hover_handler(2); 
-       
-        }); 
+        right_button.hover(function() { button_hover_handler(1);}); 
+        right_button.click(function() { next_screen();});
 
-        box3.click(function(){
-       
-          pic_click_handler(2); 
-       
-        }); 
-
-        box4.hover(function(){
-       
-        	pic_hover_handler(3); 
-       
-        }); 
-
-        box4.click(function(){
-       
-          pic_click_handler(3); 
-       
-        }); 
-
-        left_button.hover(function(){
-       
-          button_hover_handler(0);    
-       
-        }); 
-
-        left_button.click(function(){
-        
-          prev_screen(); 
-
-       
-        }); 
-
-        right_button.hover(function(){
-       
-          button_hover_handler(1);
-
-       
-        }); 
-        
-        right_button.click(function(){
-          
-          next_screen(); 
-       
-        });
-        
   		for(let i=0; i<4; i++){
 
   			box_container[i].css({background: url_container[i]}); 
@@ -235,7 +192,12 @@ $(window).load(function(){
        var next_screen = function(){
          
           if(current_screen<number_of_screens){
+            
             current_screen++;
+             slide_number_container.css({
+
+                background: screen_number_urls[current_screen-1]
+            }); 
 
             for(let i=0; i<4; i++){
 
@@ -278,6 +240,10 @@ $(window).load(function(){
           if(current_screen>1){
 
             current_screen--;
+            slide_number_container.css({
+
+                background: screen_number_urls[current_screen-1]
+            }); 
 
             for(let i=0; i<4; i++){
               box_container[i].fadeOut(pic_fade, function(){
@@ -341,6 +307,17 @@ $(window).load(function(){
           });
           */
 
+          // TEMPORARY CODE THAT LOADS PICTURES INTO EACH OF THE TEMP BOXES
+
+          for(let i=1; i<=number_of_suggestions; i++){
+
+              $("#suggestion_"+i).css({
+
+                  background: all_photos[i]
+
+              }); 
+
+          }
 
        }
 
