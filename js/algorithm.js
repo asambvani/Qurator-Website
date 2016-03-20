@@ -30,6 +30,7 @@ $(window).load(function(){
         const total_inventory = 39; 
         var boxes_selected = []; 
 
+        // Initialize Inventory URLS
         for(let i=1; i<=total_inventory; i++){
 
           var temp_string = "url(\"/img/inv/thumb/"
@@ -48,38 +49,6 @@ $(window).load(function(){
           
 
         }
-
-        /*var reader = new FileReader();
-        var file = evt.target.files[0]; 
-        reader.readAsText();
-        console.log(reader); 
-
-         reader.onLoad= function (event){
-
-
-            var databaseData = event.target.result 
-            var data = $.csv.toArray(databaseData); 
-            console.log(data); 
-
-        }
- 
-        */
-
-        var fileInput = document.getElementById("database.csv"); 
-        console.log(fileInput);
-
-
-       
-
-        //var database = $.csv.toArray("/picture_database/database.csv"); 
-
-       /* var reader = new FileReader(); 
-        reader.readAsText("database.csv"); 
-        reader.onLoad = function(){
-            var csv = event.target.result; 
-            console.log(csv); 
-
-        }*/
         
         for (let i=0; i<number_of_screens*boxes_per_screen; i++){
 
@@ -87,6 +56,14 @@ $(window).load(function(){
 
         }
 
+
+        // Lock scrolling
+        $('body').css({'overflow':'hidden'});
+          $(document).bind('scroll',function () { 
+          window.scrollTo(0,0); 
+        });
+
+        // Event methods for four algorithm boxes 
         box1.hover(function() { pic_hover_handler(0);}); 
         box1.click(function() { pic_click_handler(0);}); 
 
@@ -97,7 +74,7 @@ $(window).load(function(){
         box3.click(function() { pic_click_handler(2);}); 
 
         box4.hover(function() { pic_hover_handler(3);}); 
-        box4.click(function() { pic_click_handler(4);}); 
+        box4.click(function() { pic_click_handler(3);}); 
        
         left_button.hover(function() { button_hover_handler(0);}); 
         left_button.click(function() { prev_screen();}); 
@@ -118,7 +95,6 @@ $(window).load(function(){
 	       		box_container[box_number].css({
 
 	       				opacity: '0.8'
-
 
        			});
 
@@ -171,9 +147,7 @@ $(window).load(function(){
 
             });
 
-           
             boxes_selected[(current_screen-1)*4+box_number] = true; 
-
 
          } else if (boxes_selected[(current_screen-1)*4+box_number] == true){
 
@@ -280,6 +254,11 @@ $(window).load(function(){
 
           console.log(boxes_selected);
 
+          // Unlock Scrolling 
+
+          $('body').css({'overflow':'visible'});
+          $(document).unbind('scroll');
+
 
           suggestions_section.css({
 
@@ -311,15 +290,33 @@ $(window).load(function(){
 
           for(let i=1; i<=number_of_suggestions; i++){
 
+              var random_pic = Math.floor(Math.random()*(total_inventory-1)+1);
+
               $("#suggestion_"+i).css({
 
-                  background: all_photos[i]
+                  // Once algorithm is finished, change the below to pull from algorithm suggestions array
+                   
+                  background: all_photos[random_pic]
 
               }); 
 
           }
 
        }
+
+        d3.text("/picture_database/database.csv", function(data) {
+          var parsedCSV = d3.csv.parseRows(data);
+          for(let i=0; i<parsedCSV.length;i++){
+            for(let k=0;k<parsedCSV[i].length;k++){
+
+                console.log(parsedCSV[i][k]);
+
+            }
+          }
+            
+        });
+          
+            
 
     });
 
